@@ -17,3 +17,13 @@ export function getRoomDeviceList(
 ): Promise<GetRoomDeviceListResponse> {
   return tuya.getRoomDeviceList(params);
 }
+
+export type GetHomeDeviceListParams = {
+  homeId?: number;
+};
+
+export function getHomeDeviceList(
+  params:GetHomeDeviceListParams
+): Promise<any> {
+  return tuya.getHomeDeviceList(params);
+}
