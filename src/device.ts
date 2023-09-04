@@ -96,3 +96,7 @@ export function getThingDevice(params: ThingDeviceParams): Promise<any> {
   return tuya.getDevice(params);
 }
 
+export function getDeviceData(params: ThingDeviceParams): Promise<any> {
+  return tuya.getDeviceData(params);
+}
+
