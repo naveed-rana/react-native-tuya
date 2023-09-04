@@ -64,3 +64,7 @@ export function getCurrentWifi(
   // We need the Allow While Using App location permission to use this.
   return tuya.getCurrentWifi({}, success, error);
 }
+
+export function getActivatorToken(): Promise<String> {
+  return tuya.getActivatorToken();
+}

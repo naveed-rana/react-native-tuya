@@ -30,6 +30,7 @@ import com.thingclips.smart.sdk.bean.MultiModeActivatorBean
 import com.thingclips.smart.sdk.enums.ActivatorModelEnum
 import com.thingclips.smart.sdk.api.IThingActivatorGetToken
 import com.thingclips.smart.home.sdk.builder.ThingGwSubDevActivatorBuilder
+import com.thingclips.smart.sdk.api.IThingActivatorCreateToken
 import com.tuya.smart.rnsdk.utils.Constant.DEVID
 import com.tuya.smart.rnsdk.utils.Constant.TYPE
 
@@ -231,5 +232,19 @@ class TuyaActivatorModule(reactContext: ReactApplicationContext) : ReactContextB
         //promise.reject(var1,"")
       }
     }
+  }
+  @ReactMethod
+  fun getActivatorToken(promise: Promise) {
+    ThingHomeSdk.getActivatorInstance().getActivatorToken(object : IThingActivatorCreateToken {
+      override fun onSuccess(token: String) {
+        // Handle the onSuccess logic here
+        promise.resolve(token)
+      }
+
+      override fun onFailure(errorCode: String, errorMsg: String) {
+        // Handle the onFailure logic here
+        promise.reject(errorCode.toString(), errorMsg);
+      }
+    })
   }
 }
