@@ -89,3 +89,10 @@ export function getDataPointStat(
 ): Promise<any> {
   return tuya.getDataPointStat(params);
 }
+
+export type ThingDeviceParams = { devId: string };
+
+export function getThingDevice(params: ThingDeviceParams): Promise<any> {
+  return tuya.getDevice(params);
+}
+
